@@ -1,3 +1,8 @@
-<div>
-    <!-- I have not failed. I've just found 10,000 ways that won't work. - Thomas Edison -->
-</div>
+@extends('admin.layouts.layout')
+@section('admin_page_title')
+Manage Product - Admin Panel
+@endsection
+
+@section('admin_layout')
+    <h3>Manage Product Page</h3>
+@endsection

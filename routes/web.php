@@ -23,10 +23,10 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
         Route::controller(AdminMainController::class)->group(function () {
             Route::get('/dashboard', 'index')->name('admin');
             Route::get('/settings', 'setting')->name('admin.settings');
-            Route::get('/manage/users', 'manage_user')->name('admin.manage.user');
-            Route::get('/manage/stores', 'manage_store')->name('admin.manage.store');
-            Route::get('/cart/history', 'cart_history')->name('admin.cart.history');
-            Route::get('/order/history', 'order_history')->name('admin.order.history');
+            Route::get('/manage/users', 'manageUser')->name('admin.manage.user');
+            Route::get('/manage/stores', 'manageStore')->name('admin.manage.store');
+            Route::get('/cart/history', 'cartHistory')->name('admin.cart.history');
+            Route::get('/order/history', 'orderHistory')->name('admin.order.history');
         });
 
         Route::controller(CategoryController::class)->group(function () {

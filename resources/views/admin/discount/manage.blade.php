@@ -1,3 +1,8 @@
-<div>
-    <!-- Walk as if you are kissing the Earth with your feet. - Thich Nhat Hanh -->
-</div>
+@extends('admin.layouts.layout')
+@section('admin_page_title')
+Manage Discount - Admin Panel
+@endsection
+
+@section('admin_layout')
+    <h3>Manage Discout Page</h3>
+@endsection

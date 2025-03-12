@@ -1,3 +1,8 @@
-<div>
-    <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
-</div>
+@extends('admin.layouts.layout')
+@section('admin_page_title')
+Create Discount - Admin Panel
+@endsection
+
+@section('admin_layout')
+    <h3>Create Discout Page</h3>
+@endsection
