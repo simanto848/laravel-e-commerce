@@ -40,8 +40,8 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
         });
 
         Route::controller(ProductController::class)->group(function () {
-            Route::get('/product/create', 'index')->name('product.create');
-            Route::get('/product/review/manage', 'review_manage')->name('product.review.manage');
+            Route::get('/product/manage', 'index')->name('product.manage');
+            Route::get('/product/review/manage', 'reviewManage')->name('product.review.manage');
         });
 
         Route::controller(ProductAttributeController::class)->group(function () {
