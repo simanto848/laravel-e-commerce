@@ -26,7 +26,12 @@ class MasterCategoryController extends Controller
         $validate_data = $request->validate([
             'category_name'=> ['required', 'unique:categories', 'string', 'max:200', 'min:2']
         ]);
-        Category::find($categoryId)->update($validate_data);
+        Category::findOrFail($categoryId)->update($validate_data);
         return redirect()->back()->with('message','Category updated successfully');
+    }
+
+    public function deleteCategory($categoryId) {
+        Category::findOrFail($categoryId)->delete();
+        return redirect()->back()->with('message','Category deleted successfully');
     }
 }
