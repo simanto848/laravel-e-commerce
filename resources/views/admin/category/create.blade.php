@@ -12,12 +12,12 @@
                 </div>
                 <div class="card-body">
 
-                    {{-- Show Error Message --}}
                     @if ($errors->any())
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <ul class="mb-0">
+                        <div
+                            style="background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 1rem; border-radius: 0.25rem; margin-bottom: 1rem;">
+                            <ul style="margin: 0; padding-left: 1.5rem;">
                                 @foreach ($errors->all() as $error)
-                                    <li class="mb-0">{{ $error }}</li>
+                                    <li style="list-style-type: disc; margin-bottom: 0.25rem;">{{ $error }}</li>
                                 @endforeach
                             </ul>
                         </div>
@@ -25,7 +25,8 @@
 
                     {{-- Show Success Message --}}
                     @if (session('message'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <div
+                            style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 1rem; border-radius: 0.25rem; margin-bottom: 1rem;">
                             {{ session('message') }}
                         </div>
                     @endif
