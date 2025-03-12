@@ -9,11 +9,24 @@ class MasterCategoryController extends Controller
 {
     public function storeCategory(Request $request) {
         $validate_data = $request->validate([
-            'category_name' => ['required', 'unique:categories', 'string', 'max:200', 'min:10'],
+            'category_name' => ['required', 'unique:categories', 'string', 'max:200', 'min:2'],
         ]);
 
         Category::create($validate_data);
 
         return redirect()->back()->with('message', 'Category created successfully');
+    }
+
+    public function showCategory($categoryId) {
+        $categoryInfo = Category::find($categoryId);
+        return view('admin.category.edit', compact('categoryInfo'));
+    }
+
+    public function updateCategory(Request $request, $categoryId) {
+        $validate_data = $request->validate([
+            'category_name'=> ['required', 'unique:categories', 'string', 'max:200', 'min:2']
+        ]);
+        Category::find($categoryId)->update($validate_data);
+        return redirect()->back()->with('message','Category updated successfully');
     }
 }
