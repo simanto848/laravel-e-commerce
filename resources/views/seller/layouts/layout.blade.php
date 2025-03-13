@@ -84,18 +84,6 @@
                         </a>
                     </li>
                 </ul>
-
-                <div class="sidebar-cta">
-                    <div class="sidebar-cta-content">
-                        <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-                        <div class="mb-3 text-sm">
-                            Are you looking for more components? Check out our premium version.
-                        </div>
-                        <div class="d-grid">
-                            <a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </nav>
 
@@ -275,7 +263,10 @@
                                 <a class="dropdown-item" href="#"><i class="align-middle me-1"
                                         data-feather="help-circle"></i> Help Center</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <form action="{{ route('logout') }}" class="dropdown-item" method="POST">
+                                    @csrf
+                                    <input type="submit" value="Logout" class="btn btn-danger w-100">
+                                </form>
                             </div>
                         </li>
                     </ul>
@@ -293,27 +284,22 @@
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row text-muted">
-                        <div class="col-6 text-start">
-                            <p class="mb-0">
-                                <a class="text-muted" href="https://adminkit.io/"
-                                    target="_blank"><strong>AdminKit</strong></a> - <a class="text-muted"
-                                    href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin
-                                        Template</strong></a> &copy;
-                            </p>
-                        </div>
-                        <div class="col-6 text-end">
+                        <div class="col-6 text-end justify-center">
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+                                    <a class="text-muted" href="https://github.com/simanto848"
+                                        target="_blank">Support</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+                                    <a class="text-muted" href="https://github.com/simanto848" target="_blank">Help
+                                        Center</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+                                    <a class="text-muted" href="https://github.com/simanto848"
+                                        target="_blank">Privacy</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+                                    <a class="text-muted" href="https://github.com/simanto848" target="_blank">Terms</a>
                                 </li>
                             </ul>
                         </div>
