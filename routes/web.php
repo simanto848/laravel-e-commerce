@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductDiscountController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Customer\CustomerMainController;
 use App\Http\Controllers\MasterCategoryController;
+use App\Http\Controllers\MasterSubCategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Seller\SellerMainController;
 use App\Http\Controllers\Seller\SellerProductController;
@@ -60,6 +61,13 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
             Route::get('/category/{categoryId}', 'showCategory')->name('show.category');
             Route::put('/update/category/{categoryId}', 'updateCategory')->name('update.category');
             Route::delete('/delete/category/{categoryId}', 'deleteCategory')->name('delete.category');
+        });
+
+        Route::controller(MasterSubCategoryController::class)->group(function (){
+            Route::post('/store/subCategory', 'storeSubCategory')->name('store.subCategory');
+            Route::get('/subCategory/{subCategoryId}', 'showSubCategory')->name('show.SubCategory');
+            Route::put('/update/subCategory/{subCategoryId}', 'updateSubCategory')->name('update.SubCategory');
+            Route::delete('/delete/subCategory/{subCategoryId}', 'deleteSubCategory')->name('delete.SubCategory');
         });
     });
 });

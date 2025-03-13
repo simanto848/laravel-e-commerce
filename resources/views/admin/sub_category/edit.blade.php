@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 @section('admin_page_title')
-    Create Sub Category - Admin Panel
+    Update Sub Category - Admin Panel
 @endsection
 
 @section('admin_layout')
@@ -31,22 +31,22 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('store.subCategory') }}" method="POST">
+                    <form action="{{ route('update.SubCategory', $subCategoryInfo->id) }}" method="POST">
                         @csrf
-                        @method('POST')
+                        @method('PUT')
 
                         <label for="sub_category_name" class="fw-bold mb-2">Sub Category Name</label>
                         <input type="text" class="form-control" placeholder="Electronics" name="sub_category_name"
-                            id="sub_category_name" value="{{ old('sub_category_name') }}" required>
+                            id="sub_category_name" value="{{ $subCategoryInfo->sub_category_name }}" required>
 
                         <label for="category_id" class="fw-bold mb-2">Select Category</label>
                         <select name="category_id" id="category_id" class="form-control">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                <option value="{{ $category->id }}" {{ $category->id == $subCategoryInfo->category_id ? 'selected' : '' }}>{{ $category->category_name }}</option>
                             @endforeach
                         </select>
 
-                        <button type="submit" class="btn btn-primary w-100 mt-2">Add Sub Category</button>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Update Sub Category</button>
                     </form>
                 </div>
             </div>
