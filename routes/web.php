@@ -49,6 +49,11 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
         Route::controller(ProductAttributeController::class)->group(function () {
             Route::get('/productattribute/create', 'index')->name('productattribute.create');
             Route::get('/productattribute/manage', 'manage')->name('productattribute.manage');
+            // Routes for Default Product Attribute
+            Route::post('/default-product-attribute/store', 'store')->name('default.product.attribute.store');
+            Route::get('/default-product-attribute/{defaultAttributeId}', 'showDefaultAttribute')->name('default.product.attribute.show');
+            Route::put('/default-product-attribute/update/{defaultAttributeId}', 'updateDefaultAttribute')->name('default.product.attribute.update');
+            Route::delete('/default-product-attribute/delete/{defaultAttributeId}', 'deleteDefaultAttribute')->name('default.product.attribute.delete');
         });
 
         Route::controller(ProductDiscountController::class)->group(function () {

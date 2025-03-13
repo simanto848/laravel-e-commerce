@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 @section('admin_page_title')
-    Create Default Attribute - Admin Panel
+    Update Default Attribute - Admin Panel
 @endsection
 
 @section('admin_layout')
@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Create Default Attribute</h5>
+                    <h5 class="card-title mb-0">Update Default Attribute</h5>
                 </div>
                 <div class="card-body">
 
@@ -31,15 +31,15 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('default.product.attribute.store') }}" method="POST">
+                    <form action="{{ route('default.product.attribute.update', $defaultAttribute->id) }}" method="POST">
                         @csrf
-                        @method('POST')
+                        @method('PUT')
 
                         <label for="attribute_value" class="fw-bold mb-2">Attribute Name</label>
-                        <input type="text" class="form-control" placeholder="XL" name="attribute_value"
-                            id="attribute_value">
+                        <input type="text" class="form-control" placeholder="XL" name="attribute_value" id="attribute_value"
+                            value="{{ $defaultAttribute->attribute_value }}">
 
-                        <button type="submit" class="btn btn-primary w-100 mt-2">Add Attribute</button>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Update Attribute</button>
                     </form>
                 </div>
             </div>
