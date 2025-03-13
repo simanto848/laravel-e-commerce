@@ -1,7 +1,7 @@
 @extends('seller.layouts.layout')
 
 @section('seller_page_title')
-    Create New Store
+    Update Store
 @endsection
 
 @section('seller_layout')
@@ -9,7 +9,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Create Store</h5>
+                    <h5 class="card-title mb-0">Update Store</h5>
                 </div>
                 <div class="card-body">
 
@@ -32,21 +32,23 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('vendor.store.publish') }}" method="POST">
+                    <form action="{{ route('vendor.store.update', $store->id) }}" method="POST">
                         @csrf
-                        @method('POST')
+                        @method('PUT')
 
                         <label for="store_name" class="fw-bold mb-2">Store Name</label>
-                        <input type="text" class="form-control" placeholder="John store" name="store_name" id="store_name">
+                        <input type="text" class="form-control" placeholder="John store" name="store_name" id="store_name"
+                            value="{{ $store->store_name }}">
 
                         <label for="slug" class="fw-bold mb-2">Slug</label>
-                        <input type="text" class="form-control" placeholder="John store" name="slug" id="slug">
+                        <input type="text" class="form-control" placeholder="John store" name="slug" id="slug"
+                            value="{{ $store->slug }}">
 
                         <label for="details" class="fw-bold mb-2">Store Name</label>
                         <textarea type="text" class="form-control" name="details" id="details" rows="10"
-                            cols="30"></textarea>
+                            cols="30">{{ $store->details }}</textarea>
 
-                        <button type="submit" class="btn btn-primary w-100 mt-2">Add Store</button>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Update Store</button>
                     </form>
                 </div>
             </div>

@@ -88,6 +88,10 @@ Route::middleware(['auth', 'verified', 'rolemanager:vendor'])->group(function ()
         Route::controller(SellerStoreController::class)->group(function () {
             Route::get('/product/create', 'index')->name('vendor.store.create');
             Route::get('/product/manage', 'manage')->name('vendor.store.manage');
+            Route::post('/store/publish', 'store')->name('vendor.store.publish');
+            Route::get('/store/{storeId}', 'show')->name('vendor.store.show');
+            Route::put('/store/update/{storeId}', 'update')->name('vendor.store.update');
+            Route::delete('/store/delete/{storeId}', 'delete')->name('vendor.store.delete');
         });
 
         Route::controller(SellerProductController::class)->group(function () {
