@@ -98,6 +98,9 @@ Route::middleware(['auth', 'verified', 'rolemanager:vendor'])->group(function ()
             Route::get('/product/create', 'index')->name('vendor.product.create');
             Route::get('/product/manage', 'manage')->name('vendor.product.manage');
             Route::post('/product/store', 'store')->name('vendor.product.store');
+            Route::get('/product/show/{productId}', 'show')->name('vendor.product.show');
+            Route::put('/product/update/{productId}', 'update')->name('vendor.product.update');
+            Route::delete('/product/delete/{productId}', 'delete')->name('vendor.product.delete');
         });
     });
 });
