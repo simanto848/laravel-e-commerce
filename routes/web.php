@@ -97,6 +97,7 @@ Route::middleware(['auth', 'verified', 'rolemanager:vendor'])->group(function ()
         Route::controller(SellerProductController::class)->group(function () {
             Route::get('/product/create', 'index')->name('vendor.product.create');
             Route::get('/product/manage', 'manage')->name('vendor.product.manage');
+            Route::post('/product/store', 'store')->name('vendor.product.store');
         });
     });
 });

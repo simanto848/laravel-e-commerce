@@ -30,7 +30,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(false);
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
-            $table->enum('status', ['Draft', 'Published']);
+            $table->enum('status', ['Draft', 'Published'])->default('Draft');
             $table->timestamps();
         });
     }
