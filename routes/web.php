@@ -13,11 +13,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Seller\SellerMainController;
 use App\Http\Controllers\Seller\SellerProductController;
 use App\Http\Controllers\Seller\SellerStoreController;
+use App\Livewire\HomePageComponent;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomePageComponent::class)->name('home');
 
 // Admin Routes
 Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () {
